@@ -17,6 +17,6 @@ public class Store {
     private int id;
 
     @Column(nullable = false)
-    private String store_address;
+    private String address;
 
 }
