@@ -14,4 +14,6 @@ public class RequestDto {
     private String menu;
     private String content;
     private int distance;
+    private int item_price;
+    private int delivery_fee;
 }

@@ -32,6 +32,8 @@ public class RequestService {
         request.set_subscribed(user.getIs_subscribed());
         request.setEnd_time(dto.getEnd_time());
         request.setDestination_time(dto.getDestination_time());
+        request.setItem_price(dto.getItem_price());
+        request.setDelivery_fee(dto.getDelivery_fee());
         request.setMenu(dto.getMenu());
         request.setContent(dto.getContent());
 

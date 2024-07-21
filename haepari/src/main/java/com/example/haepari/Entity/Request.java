@@ -39,15 +39,17 @@ public class Request {
     @Column
     private int distance;
 
+    @Column
+    private int item_price;
+
+    @Column
+    private int delivery_fee;
+
+
     // User와의 ManyToOne 관계 설정
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
-
-    // Cost와의 OneToOne 관계 설정
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    private Cost cost;
 
     // Review와의 OneToOne 관계 설정
     @OneToOne(fetch = FetchType.LAZY)
