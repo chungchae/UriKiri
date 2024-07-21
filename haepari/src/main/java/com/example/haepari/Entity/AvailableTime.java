@@ -17,7 +17,6 @@ public class AvailableTime {
 
     @Column(nullable = false)
     private int day; // 요일 (0: 일요일, 1: 월요일, ...)
-
     @Column(nullable = false)
     private String available_time; // 활동 가능 시간
 
