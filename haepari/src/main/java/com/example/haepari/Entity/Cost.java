@@ -14,10 +14,10 @@ public class Cost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column
     private int item_cost; // 상품 가격
 
-    @Column(nullable = false)
+    @Column
     private int delivery_cost; // 배달 가격
 
 }

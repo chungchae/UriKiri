@@ -25,7 +25,7 @@ public class UserController {
         }
 
     }
-    @GetMapping("/join")
+    @PostMapping("/join")
     public ResponseEntity<String> join(@RequestBody JoinDto joinDto){
         String status = userService.join(joinDto);
         if(status=="모두 입력하세요"){
@@ -33,9 +33,7 @@ public class UserController {
         }else if(status=="중복된 아이디입니다"){
             return ResponseEntity.status(404).body("아이디가 중복됩니다. 다시 입력하세요");
         }
-        else if(status=="중복된 비밀번호입니다"){
-            return ResponseEntity.status(404).body("비밀번호가 중복됩니다. 다시 입력하세요");
-        }
+
 
         else
             return ResponseEntity.ok("회원가입 성공!");

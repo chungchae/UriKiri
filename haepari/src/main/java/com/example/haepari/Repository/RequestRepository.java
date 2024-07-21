@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request,Integer> {
-    List<Request> findAllByDestination_address(String destination_address);
+
     List<Request> findAllByUser(User user);
     Request findById(int requestId);
     @Transactional
