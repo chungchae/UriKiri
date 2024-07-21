@@ -3,13 +3,11 @@ package com.example.haepari.Controller;
 
 import com.example.haepari.Repository.UserRepository;
 import com.example.haepari.Service.UserService;
+import com.example.haepari.dto.JoinDto;
 import com.example.haepari.dto.LoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -26,5 +24,20 @@ public class UserController {
             return ResponseEntity.status(404).body("아이디 혹은 비밀번호가 틀립니다.");
         }
 
+    }
+    @GetMapping("/join")
+    public ResponseEntity<String> join(@RequestBody JoinDto joinDto){
+        String status = userService.join(joinDto);
+        if(status=="모두 입력하세요"){
+            return ResponseEntity.ok("정보를 모두 입력하세요");
+        }else if(status=="중복된 아이디입니다"){
+            return ResponseEntity.status(404).body("아이디가 중복됩니다. 다시 입력하세요");
+        }
+        else if(status=="중복된 비밀번호입니다"){
+            return ResponseEntity.status(404).body("비밀번호가 중복됩니다. 다시 입력하세요");
+        }
+
+        else
+            return ResponseEntity.ok("회원가입 성공!");
     }
 }

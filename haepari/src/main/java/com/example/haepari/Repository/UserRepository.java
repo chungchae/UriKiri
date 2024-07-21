@@ -10,7 +10,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
     User findByUsername(String username);
 
     Boolean existsByUsername(String username);
-
+    Boolean existsByPassword(String password); // 비밀번호 중복 체크를 위한 메서드 추가
     @Transactional
     User save(User user);
 
