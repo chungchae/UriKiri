@@ -19,6 +19,9 @@ public class Request {
     private int id;
 
     @Column
+    private String menu;
+
+    @Column
     private String content;
 
     @Column
