@@ -5,6 +5,7 @@ import com.example.haepari.Repository.UserRepository;
 import com.example.haepari.Service.UserService;
 import com.example.haepari.dto.JoinDto;
 import com.example.haepari.dto.LoginDto;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,11 @@ public class UserController {
     public UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<String> login(@RequestBody LoginDto loginDto, HttpSession session){
         int status = userService.login(loginDto);
+
+        session.setAttribute("username",loginDto.getUsername());
+
         if(status==1){
             return ResponseEntity.ok("로그인 성공");
         }else{
