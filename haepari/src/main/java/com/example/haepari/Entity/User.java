@@ -35,6 +35,6 @@ public class User {
     private String phone;
 
     @Column
-    private boolean is_subscribed;
+    private Boolean is_subscribed;
 
 }
