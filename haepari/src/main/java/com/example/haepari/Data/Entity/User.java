@@ -14,12 +14,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String userId;
+    private int userId;
+    @Column
     private String id;
+    @Column
     private String password;
+    @Column
     private String nickName;
-
+    @Column
     private float star;
+    @Column
     private int point;
 
 
