@@ -5,8 +5,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

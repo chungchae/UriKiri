@@ -8,8 +8,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Cost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

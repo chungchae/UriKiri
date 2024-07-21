@@ -5,14 +5,14 @@ import lombok.*;
 
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor // 디폴트 생성자를 추가!
-@Getter
-@Setter
+@Data
 public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,21 +37,23 @@ public class Request {
     private int distance;
 
     // User와의 ManyToOne 관계 설정
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private User user;
 
     // Cost와의 OneToOne 관계 설정
-    @OneToOne
-    @JoinColumn(name = "cost_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private Cost cost;
 
     // Review와의 OneToOne 관계 설정
-    @OneToOne(mappedBy = "request")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private Review review;
 
-    // Delivery와의 OneToMany 관계 설정
-    @OneToMany(mappedBy = "request")
-    private List<Delivery> deliveries;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Store store;
+
 }
 

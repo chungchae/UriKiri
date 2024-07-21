@@ -10,8 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

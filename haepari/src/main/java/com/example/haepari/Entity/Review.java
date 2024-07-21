@@ -8,8 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +24,8 @@ public class Review {
     private int score;
 
 
-    @OneToOne(mappedBy = "review")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private Request request;
 
 }

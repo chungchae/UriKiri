@@ -9,8 +9,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class AvailableTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +22,8 @@ public class AvailableTime {
     private String available_time; // 활동 가능 시간
 
     // User와의 ManyToOne 관계 설정
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
     private User user;
 
 }
