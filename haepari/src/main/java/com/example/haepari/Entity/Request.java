@@ -25,6 +25,9 @@ public class Request {
     private String content;
 
     @Column
+    private String store_address;
+
+    @Column
     private String destination_address;
 
     @Column
@@ -56,9 +59,6 @@ public class Request {
     @JoinColumn
     private Review review;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    private Store store;
 
 }
 
