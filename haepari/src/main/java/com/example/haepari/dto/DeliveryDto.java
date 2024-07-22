@@ -1,7 +1,11 @@
 package com.example.haepari.dto;
 
+import lombok.Data;
+
+@Data
+
 public class DeliveryDto {
-    private int status;
+    private String status;
     private String partner_name;
-    private float partner_star;
+    private float partner_score;
 }

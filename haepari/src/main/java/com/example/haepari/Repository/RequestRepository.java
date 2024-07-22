@@ -13,7 +13,7 @@ import java.util.List;
 public interface RequestRepository extends JpaRepository<Request,Integer> {
 
     List<Request> findAllByUser(User user);
-    Request findById(int requestId);
+    Request findById(int id);
     @Transactional
     Request save(Request request);
 
